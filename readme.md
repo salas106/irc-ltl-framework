@@ -1,6 +1,8 @@
 IrcBot
 ======
 
+Travis : [![Build Status](https://travis-ci.org/salas106/irc-ltl-framework.svg)](https://travis-ci.org/salas106/irc-ltl-framework)
+
 About
 -----
 
