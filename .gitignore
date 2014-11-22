@@ -1,0 +1,6 @@
+# Idea project
+.idea/
+
+# Secure config
+config/config.yaml
+
