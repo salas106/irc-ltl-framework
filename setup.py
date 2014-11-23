@@ -1,9 +1,9 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='ircbot',
     version='0.2.0',
-    packages=['tests', 'ircbot', 'ircbot.utils', 'ircbot.plugins'],
+    packages=['tests',  'utils', 'plugins'],
     url='https://github.com/salas106/irc-ltl-framework',
     license='MIT',
     author='salas',

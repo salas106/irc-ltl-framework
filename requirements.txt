@@ -1,3 +1,4 @@
+sigtools
 irc3
 requests
 sqlalchemy
@@ -6,3 +7,4 @@ coverage
 nose
 nosexcover
 python-coveralls
+clize
