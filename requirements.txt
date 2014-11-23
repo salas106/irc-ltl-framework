@@ -2,3 +2,5 @@ irc3
 requests
 sqlalchemy
 coloredlogs
+coverage
+nose
