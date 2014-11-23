@@ -5,4 +5,4 @@ coloredlogs
 coverage
 nose
 nosexcover
-coveralls
+python-coveralls
