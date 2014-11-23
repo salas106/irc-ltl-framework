@@ -3,7 +3,7 @@ import os.path as path
 import errno
 import sys
 
-from yaml import load
+import yaml
 
 
 try:
@@ -24,7 +24,7 @@ logger.debug('The config file path is {}.'.format(config_file_path))
 def get_config():
     try:
         with open(config_file_path, 'rb') as config_stream:
-            config_dict = load(config_stream)
+            config_dict = yaml.load(config_stream)
     except IOError:
         logger.info('')
         try:
@@ -36,10 +36,18 @@ def get_config():
                 raise
         with open(config_file_path, 'a'):
             os.utime(config_file_path, None)
-        # TODO :TUTORIAL TO FILL OUT THE DICT
+        try:
+            with open(config_example_path, 'rb') as config_example_stream:
+                config_dict_example = yaml.load(config_example_stream)
+            # TODO : console based example file modification
+            with open(config_file_path, 'rw') as config_stream:
+                yaml.dump(config_dict_example, config_stream)
+        except IOError:
+            logger.critical("No example file. Exiting.")
+            sys.exit(0)
         try:
             with open(config_file_path, 'rb') as config_stream:
-                config_dict = load(config_stream)
+                config_dict = yaml.load(config_stream)
         except Exception:
-            sys.exit()
+            sys.exit(0)
     return config_dict

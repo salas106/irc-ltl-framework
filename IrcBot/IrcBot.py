@@ -6,7 +6,7 @@
 """
 
 import IrcBot.utils.log
-from IrcBot import utils
+import IrcBot.utils.config
 
 logger = IrcBot.utils.log.get_logger('IrcBot')
 conf = IrcBot.utils.config.get_config()

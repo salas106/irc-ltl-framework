@@ -15,9 +15,9 @@ def get_logger(name):
     formatter_file = logging.Formatter('%(asctime)s :: %(levelname)s :: %(message)s')
     log_file_path = path.join(log_dir_path, '{}.log'.format(name))
     try:
-        with open(log_file_path) as test:
+        with open(log_file_path):
             pass
-    except FileNotFoundError:
+    except IOError:
         with open(log_file_path, 'a'):
             os.utime(log_file_path, None)
 
