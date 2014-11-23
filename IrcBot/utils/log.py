@@ -1,10 +1,11 @@
 import os
+import os.path as path
 
 import logging
 from logging.handlers import RotatingFileHandler
 import coloredlogs
 
-log_dir_path = os.path.abspath(os.path.join(os.sep, os.path.dirname(__file__), os.path.pardir, 'logs'))
+log_dir_path = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, path.pardir, 'logs'))
 
 
 def get_logger(name):
@@ -12,7 +13,7 @@ def get_logger(name):
     # File logging
     logger.setLevel(logging.DEBUG)
     formatter_file = logging.Formatter('%(asctime)s :: %(levelname)s :: %(message)s')
-    log_file_path = os.path.join(log_dir_path, '{}.log'.format(name))
+    log_file_path = path.join(log_dir_path, '{}.log'.format(name))
     try:
         with open(log_file_path) as test:
             pass

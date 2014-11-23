@@ -1,8 +1,9 @@
 import os
+import os.path as path
 
 import sqlalchemy
 
-db_file_path = os.path.abspath(os.path.join(os.sep, os.path.dirname(__file__), os.path.pardir, 'db', 'IrcBot.db'))
+db_file_path = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, path.pardir, 'db', 'IrcBot.db'))
 db_engine = sqlalchemy.create_engine(db_file_path, echo=True)
 
 from sqlalchemy.ext.declarative import declarative_base

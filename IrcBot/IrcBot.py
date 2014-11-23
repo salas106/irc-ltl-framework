@@ -5,9 +5,9 @@
     Just start it and it will read the configuration file (if existing) or create one step by step (if not).
 """
 
-import utils.config
-import utils.log
+import IrcBot.utils.log
+from IrcBot import utils
 
-logger = utils.log.get_logger('IrcBot')
-conf = utils.config.get_config()
+logger = IrcBot.utils.log.get_logger('IrcBot')
+conf = IrcBot.utils.config.get_config()
 
