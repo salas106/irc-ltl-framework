@@ -11,9 +11,9 @@ try:
 except ImportError:
     from yaml import Loader, Dumper
 
-import ircbot.utils.log
+import utils.log
 
-logger = ircbot.utils.log.get_logger('config')
+logger = utils.log.get_logger('config')
 
 config_dir_path = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, path.pardir, 'config'))
 config_file_path = path.join(config_dir_path, 'config.yaml')
@@ -40,7 +40,7 @@ def get_config():
             with open(config_example_path, 'rb') as config_example_stream:
                 config_dict_example = yaml.load(config_example_stream)
             # TODO : console based example file modification
-            with open(config_file_path, 'rw') as config_stream:
+            with open(config_file_path, 'wb') as config_stream:
                 yaml.dump(config_dict_example, config_stream)
         except IOError:
             logger.critical("No example file. Exiting.")

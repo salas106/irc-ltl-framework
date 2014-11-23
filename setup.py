@@ -10,3 +10,4 @@ setup(
     author_email='salas.106.212@gmail.com',
     description='ircbot framework for gazelle trackers'
 )
+x
