@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/salas106/irc-ltl-framework.png?label=ready&title=Ready)](https://waffle.io/salas106/irc-ltl-framework)
 IrcBot
 ======
 
