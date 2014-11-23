@@ -11,7 +11,7 @@ except ImportError:
 import utils.log
 logger = utils.log.get_logger('config')
 
-config_dir_path = os.path.abspath(os.path.join(os.sep, os.path.abspath(__file__), os.path.pardir, 'config'))
+config_dir_path = os.path.abspath(os.path.join(os.sep, os.path.dirname(__file__), os.path.pardir, 'config'))
 config_file_path = os.path.join(config_dir_path, 'config.yaml')
 config_example_path = os.path.join(config_dir_path, 'config.example.yaml')
 logger.debug('The config file path is {}.'.format(config_file_path))

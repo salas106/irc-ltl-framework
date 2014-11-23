@@ -4,3 +4,5 @@
 # Secure config
 config/config.yaml
 
+# logs
+logs/*.log

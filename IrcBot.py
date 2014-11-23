@@ -8,7 +8,6 @@
 import utils.config
 import utils.log
 
-logger = utils.log.get_logger('root')
+logger = utils.log.get_logger('IrcBot')
 conf = utils.config.get_config()
 
-logger.debug("test")
