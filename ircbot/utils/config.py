@@ -11,9 +11,9 @@ try:
 except ImportError:
     from yaml import Loader, Dumper
 
-import IrcBot.utils.log
+import ircbot.utils.log
 
-logger = IrcBot.utils.log.get_logger('config')
+logger = ircbot.utils.log.get_logger('config')
 
 config_dir_path = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, path.pardir, 'config'))
 config_file_path = path.join(config_dir_path, 'config.yaml')
