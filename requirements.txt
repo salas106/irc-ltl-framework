@@ -1,4 +1,3 @@
-sigtools
 irc3
 requests
 sqlalchemy
