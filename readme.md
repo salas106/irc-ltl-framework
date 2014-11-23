@@ -4,6 +4,7 @@ IrcBot
 [![Build Status](https://travis-ci.org/salas106/irc-ltl-framework.svg)](https://travis-ci.org/salas106/irc-ltl-framework)
 [![Coverage Status](https://coveralls.io/repos/salas106/irc-ltl-framework/badge.png?branch=master)](https://coveralls.io/r/salas106/irc-ltl-framework?branch=master)
 [![Code Health](https://landscape.io/github/salas106/irc-ltl-framework/master/landscape.svg)](https://landscape.io/github/salas106/irc-ltl-framework/master)
+[![Documentation Status](https://readthedocs.org/projects/irc-ltl-framework/badge/?version=latest)](https://readthedocs.org/projects/irc-ltl-framework/?badge=latest)
 [![Stories in Ready](https://badge.waffle.io/salas106/irc-ltl-framework.png?label=ready&title=Ready)](https://waffle.io/salas106/irc-ltl-framework)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/salas106/irc-ltl-framework/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
