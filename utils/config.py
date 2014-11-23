@@ -56,6 +56,6 @@ def get_config(config_path=None):
             with open(config_path, 'rb') as config_stream:
                 config_dict = yaml.load(config_stream)
         except IOError as e:
-            logger.exception()
+            logger.exception(e)
             raise
     return config_dict

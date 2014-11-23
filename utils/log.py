@@ -5,26 +5,41 @@ import logging
 from logging.handlers import RotatingFileHandler
 import coloredlogs
 
-log_dir_path = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, 'logs'))
 
-
-def get_logger(name):
+def get_logger(name, log_path=None):
     logger = logging.getLogger(name)
     # File logging
     logger.setLevel(logging.DEBUG)
     formatter_file = logging.Formatter('%(asctime)s :: %(levelname)s :: %(message)s')
-    log_file_path = path.join(log_dir_path, '{}.log'.format(name))
-    try:
-        with open(log_file_path):
-            pass
-    except IOError:
-        with open(log_file_path, 'a'):
-            os.utime(log_file_path, None)
-
-    file_handler = RotatingFileHandler(log_file_path, 'a', 1000000, 1)
-    file_handler.setLevel(logging.DEBUG)
-    file_handler.setFormatter(formatter_file)
-    logger.addHandler(file_handler)
+    if log_path is None:
+        log_path = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, 'logs', '{}.log'.format(name)))
+    else:
+        log_dir_path = path.dirname(log_path)
+        if not os.path.exists(log_dir_path):
+            try:
+                os.makedirs(log_dir_path)
+            except PermissionError:
+                print("No permission to write log file their")
+                log_path = None
+            except OSError:
+                raise
+            else:
+                with open(log_path, 'a'):
+                    os.utime(log_path, None)
+    if log_path is not None:
+        try:
+            with open(log_path):
+                pass
+        except IOError:
+            try:
+                with open(log_path, 'a'):
+                    os.utime(log_path, None)
+            except IOError:
+                raise
+        file_handler = RotatingFileHandler(log_path, 'a', 1000000, 1)
+        file_handler.setLevel(logging.DEBUG)
+        file_handler.setFormatter(formatter_file)
+        logger.addHandler(file_handler)
     # Console logging
     steam_handler = coloredlogs.ColoredStreamHandler()
     steam_handler.setLevel(logging.DEBUG)
