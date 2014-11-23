@@ -5,3 +5,4 @@ coloredlogs
 coverage
 nose
 nosexcover
+coveralls
