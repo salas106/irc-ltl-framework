@@ -5,7 +5,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import coloredlogs
 
-log_dir_path = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, path.pardir, 'logs'))
+log_dir_path = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, 'logs'))
 
 
 def get_logger(name):

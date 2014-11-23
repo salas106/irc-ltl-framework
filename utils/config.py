@@ -15,7 +15,7 @@ import utils.log
 
 logger = utils.log.get_logger('config')
 
-config_dir_path = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, path.pardir, 'config'))
+config_dir_path = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, 'config'))
 config_file_path = path.join(config_dir_path, 'config.yaml')
 config_example_path = path.join(config_dir_path, 'config.example.yaml')
 logger.debug('The config file path is {}.'.format(config_file_path))
