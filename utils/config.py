@@ -1,5 +1,12 @@
 # -*- coding: utf8 -*-
 
+"""
+    The ``config`` module
+    ===================
+
+    Create a named logger and  return it so users can log in different log files : one for each module.
+"""
+
 __author__ = 'Salas'
 __copyright__ = 'Copyright 2014 LTL'
 __credits__ = ['Salas']
@@ -16,57 +23,56 @@ import sys
 
 import yaml
 
+from yaml import CLoader as Loader, CDumper as Dumper
 
-try:
-    from yaml import CLoader as Loader, CDumper as Dumper
-except ImportError:
-    from yaml import Loader, Dumper
 
 import utils.log
 
 logger = utils.log.get_logger('config')
 
-config_dir_path = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, 'config'))
-config_file_path = path.join(config_dir_path, 'config.yaml')
-config_example_path = path.join(config_dir_path, 'config.example.yaml')
-logger.debug('The config file path is {}.'.format(config_file_path))
+CONFIG_DIR_PATH = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, 'config'))
+CONFIG_FILE_PATH = path.join(CONFIG_DIR_PATH, 'config.yaml')
+CONFIG_EXAMPLE_PATH = path.join(CONFIG_DIR_PATH, 'config.example.yaml')
+logger.debug('The config file path is {}.'.format(CONFIG_FILE_PATH))
 
 
 def get_config(config_path=None):
+    """
+    Return the config from a yaml file as a dictionary. Create one file if not existing, using example file as template.
+
+    :param config_path:
+    :return:
+    """
     if config_path is None:
         try:
-            with open(config_file_path, 'rb') as config_stream:
+            with open(CONFIG_FILE_PATH, 'rb') as config_stream:
                 config_dict = yaml.load(config_stream, Loader=Loader)
         except IOError:
             logger.info('')
             try:
-                os.makedirs(config_dir_path)
+                os.makedirs(CONFIG_DIR_PATH)
             except OSError as exc:
-                if exc.errno == errno.EEXIST and path.isdir(config_dir_path):
+                if exc.errno == errno.EEXIST and path.isdir(CONFIG_DIR_PATH):
                     pass
                 else:
                     raise
-            with open(config_file_path, 'a'):
-                os.utime(config_file_path, None)
+            with open(CONFIG_FILE_PATH, 'a'):
+                os.utime(CONFIG_FILE_PATH, None)
             try:
-                with open(config_example_path, 'rb') as config_example_stream:
+                with open(CONFIG_EXAMPLE_PATH, 'rb') as config_example_stream:
                     config_dict_example = yaml.load(config_example_stream, Loader=Loader)
                 # TODO : console based example file modification
-                with open(config_file_path, 'wb') as config_stream:
+                with open(CONFIG_FILE_PATH, 'wb') as config_stream:
                     yaml.dump(config_dict_example, config_stream, Dumper=Dumper, encoding='utf-8')
             except IOError:
                 logger.critical("No example file. Exiting.")
                 sys.exit(0)
             try:
-                with open(config_file_path, 'rb') as config_stream:
+                with open(CONFIG_FILE_PATH, 'rb') as config_stream:
                     config_dict = yaml.load(config_stream, Loader=Loader)
             except IOError:
                 sys.exit(0)
     else:
-        try:
-            with open(config_path, 'rb') as config_stream:
-                config_dict = yaml.load(config_stream, Loader=Loader)
-        except IOError as e:
-            logger.exception(e)
-            raise
+        with open(config_path, 'rb') as config_stream:
+            config_dict = yaml.load(config_stream, Loader=Loader)
     return config_dict

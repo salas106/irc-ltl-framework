@@ -1,3 +1,4 @@
+#! /usr/bin/python3
 # -*- coding: utf8 -*-
 
 """
@@ -29,6 +30,15 @@ logger = utils.log.get_logger('ircbot')
 
 
 def create_irc_bot(config_path=None):
+    """
+    Take a not mandatory path argument and create a bot with nick, server, port and default channels
+    and with default core and command plugin.
+
+    :param config_path:
+    :return: irc_bot:
+    :rtype:
+    """
+
     conf = utils.config.get_config(config_path)
     try:
         bot_nick = conf['irc']['bot']['nick']
@@ -46,8 +56,7 @@ def create_irc_bot(config_path=None):
                           autojoins=public_chan,
                           includes=[
                               'irc3.plugins.core',
-                              'irc3.plugins.command',
-                              'irc3.plugins.human'
+                              'irc3.plugins.command'
                           ])
     return irc_bot
 
