@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 
 """
-    The ``db`` module
+    The ``dbs`` module
     ===================
 
     Contain all functions to access to DB.
@@ -21,7 +21,7 @@ import os.path as path
 
 import sqlalchemy
 
-DB_FILE_PATH = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, 'db', 'ircbot.db'))
+DB_FILE_PATH = path.abspath(path.join(os.sep, path.dirname(__file__), path.pardir, 'dbs', 'ircbot.dbs'))
 DB_ENGINE = sqlalchemy.create_engine(DB_FILE_PATH, echo=True)
 
 from sqlalchemy.ext.declarative import declarative_base

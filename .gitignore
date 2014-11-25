@@ -2,7 +2,7 @@
 .idea/
 
 # Secure config
-config/config.yaml
+config/*.config.yaml
 
 # logs
 logs/*.log

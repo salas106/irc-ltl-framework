@@ -56,7 +56,9 @@ def create_irc_bot(config_path=None):
                           autojoins=public_chan,
                           includes=[
                               'irc3.plugins.core',
-                              'irc3.plugins.command'
+                              'irc3.plugins.command',
+                              'plugins.authentication'
+
                           ])
     return irc_bot
 
