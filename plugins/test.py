@@ -23,7 +23,7 @@ from irc3.plugins.command import command
 
 @irc3.plugin
 class MyPlugin:
-    """A plugin is a class which take the IrcBot as argument
+    """A plugin is a class which take the irc-ltl-framework as argument
     """
 
     requires = [
@@ -89,4 +89,3 @@ class MyPlugin:
             bot.my_usefull_method()
 
         """
-

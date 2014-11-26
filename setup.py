@@ -12,7 +12,7 @@ __status__ = 'Pre-Alpha'
 from setuptools import setup
 
 setup(
-    name='ircbot',
+    name='ircltl',
     version='0.2.0',
     packages=['tests', 'utils', 'plugins'],
     url='https://github.com/salas106/irc-ltl-framework',

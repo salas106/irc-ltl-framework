@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 
 """
-    The ``parrot`` plugin
+    The ``parrot plugin
     ====================
     
     Some can of russian parrot, that act like a russian roulette, randomly repeating some sentence.
