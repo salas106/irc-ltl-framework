@@ -56,7 +56,6 @@ class MyPlugin:
             if url_re.match(text):
                 url = url_re.search(text).group('url')
                 self.do_embed(url, target)
-                self.bot.privmsg(mask.nick, url)
 
     def do_embed(self, url, channel):
         embed_object = self.embed_client.oembed(url)
