@@ -57,8 +57,8 @@ def create_irc_bot(config_path=None):
                           includes=[
                               'irc3.plugins.core',
                               'irc3.plugins.command',
-                              'plugins.authentication'
-
+                              'plugins.authentication',
+                              'plugins.embed'
                           ])
     return irc_bot
 
